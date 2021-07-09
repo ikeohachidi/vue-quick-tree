@@ -15,7 +15,6 @@ export default {
             abortOnError: false,
             useTsconfigDeclarationDir: true,
             clean: true,
-            objectHashIgnoreUnknownHack: true,
         }),
         vue({
             css: true, // Dynamically inject css as a <style> tag
