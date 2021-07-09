@@ -19,6 +19,12 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
+  "keywords": [
+    "tree",
+    "recursive",
+    "hierachy",
+    "quick"
+  ],
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
