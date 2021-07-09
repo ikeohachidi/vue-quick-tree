@@ -1,29 +1,53 @@
-# vue-quick-tree
+# Vue Quick Tree
 
-## Project setup
-```
-npm install
-```
+A simple, straightforward and mostly unopininoted tree vue component.
 
-### Compiles and hot-reloads for development
+
+### Installation
 ```
-npm run serve
+npm i vue-quick-tree
 ```
 
-### Compiles and minifies for production
+
+
+In your main.ts file
 ```
-npm run build
+import VueQuickTree from 'vue-quick-tree'
+Vue.use(VueQuickTree)
 ```
 
-### Run your unit tests
+
+### Usage
+
 ```
-npm run test:unit
+<template>
+    <vue-quick-tree v-model="tree">
+        <template #node="{ node }">
+            <span v-if="node.type === 'folder'">📁 {{ node.name }}</span>
+            <span v-else>{{ node.name }}</span>
+        </template>
+    </vue-quick-tree>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            tree: [
+                {
+                    name: 'stuff'
+                    type: 'folder'
+                    children: [],
+                    validator: (dropLocation, dragLocation) => {}
+                }
+            ]
+        }
+    }
+}
+</script>
+
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+The expected structure is a recursive array. Feel free to add any thing property you want to add into the object.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**Note: The children property is required to have the nested structure**
