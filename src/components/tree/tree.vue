@@ -21,7 +21,7 @@
                 :allow-drag-n-drop="allowDragNDrop"
                 :style="{ ...getIndentLevel, ...nodeBorder }"
             >
-                <template v-for="(_, slot) of $slots" v-slot:[slot]="props">
+                <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="props">
                     <slot :name="slot" v-bind="props"/>
                 </template>
             </tree>
@@ -33,7 +33,7 @@
 import {Vue, Component, Prop} from 'vue-property-decorator';
 
 import { TreeItem, BorderConfig, borderDefault } from '@/types/Tree';
-import Inspector from './inspector';
+import Inspector from './Inspector';
 
 @Component({
     name: 'Tree'
