@@ -82,7 +82,7 @@ export default class Tree extends Vue {
                 return
             }
 
-            if (JSON.stringify(dropLocation) === JSON.stringify(droppedNode)) {
+            if (Inspector.activeNode.activeChild === dropLocation) {
                 return
             }
 

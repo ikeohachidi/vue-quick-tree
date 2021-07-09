@@ -6,7 +6,7 @@ type ActiveNode = {
 }
 
 class Inspector {
-    private activeNode: ActiveNode = {};
+    public activeNode: ActiveNode = {};
 
     public deleteActiveNodeChild() {
         const { nodeList, activeChild } = this.activeNode;
