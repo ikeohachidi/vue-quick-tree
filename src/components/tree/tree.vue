@@ -35,7 +35,9 @@ import {Vue, Component, Prop} from 'vue-property-decorator';
 import { treeItem, borderConfig, borderDefault } from '@/types/tree';
 import Inspector from './inspector';
 
-@Component
+@Component({
+    name: 'Tree'
+})
 export default class Tree extends Vue {
     @Prop({ default: () => [] }) value!: treeItem[];
     @Prop({ default: 10 }) indentLevel!: number;
