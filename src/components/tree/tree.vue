@@ -32,19 +32,19 @@
 <script lang='ts'>
 import {Vue, Component, Prop} from 'vue-property-decorator';
 
-import { treeItem, borderConfig, borderDefault } from '@/types/tree';
+import { TreeItem, BorderConfig, borderDefault } from '@/types/Tree';
 import Inspector from './inspector';
 
 @Component({
     name: 'Tree'
 })
 export default class Tree extends Vue {
-    @Prop({ default: () => [] }) value!: treeItem[];
+    @Prop({ default: () => [] }) value!: TreeItem[];
     @Prop({ default: 10 }) indentLevel!: number;
-    @Prop({ default: () => (borderDefault)}) border!: borderConfig;
+    @Prop({ default: () => (borderDefault)}) border!: BorderConfig;
     @Prop({ default: false }) allowDragNDrop!: boolean;
 
-    get nodes(): treeItem[] {
+    get nodes(): TreeItem[] {
         return this.value;
     }
 
@@ -68,7 +68,7 @@ export default class Tree extends Vue {
         }
     }
 
-    private onDragNode(node: treeItem, event: DragEvent): void {
+    private onDragNode(node: TreeItem, event: DragEvent): void {
         if (event.dataTransfer && this.allowDragNDrop) {
             event.dataTransfer.setData('text/plain', JSON.stringify(node));
 
@@ -76,9 +76,9 @@ export default class Tree extends Vue {
         }
     }
 
-    private onDropNode(dropLocation: treeItem, event: DragEvent): void {
+    private onDropNode(dropLocation: TreeItem, event: DragEvent): void {
         if (event.dataTransfer && this.allowDragNDrop) {
-            const droppedNode = JSON.parse(event.dataTransfer.getData('text/plain')) as treeItem;
+            const droppedNode = JSON.parse(event.dataTransfer.getData('text/plain')) as TreeItem;
 
             if (!dropLocation || !droppedNode) {
                 return

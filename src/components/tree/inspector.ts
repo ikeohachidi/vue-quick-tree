@@ -1,8 +1,8 @@
-import { treeItem } from '@/types/tree';
+import { TreeItem } from '@/types/Tree';
 
 type ActiveNode = {
-    nodeList?: treeItem[];
-    activeChild?: treeItem
+    nodeList?: TreeItem[];
+    activeChild?: TreeItem;
 }
 
 class Inspector {
