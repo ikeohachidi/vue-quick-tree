@@ -13,7 +13,7 @@ npm i vue-quick-tree
 In your main.ts file
 ```
 import VueQuickTree from 'vue-quick-tree'
-Vue.use(VueQuickTree)
+Vue.component('vue-quick-tree', VueQuickTree)
 ```
 
 
