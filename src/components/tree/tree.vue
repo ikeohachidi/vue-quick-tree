@@ -6,7 +6,7 @@
             @dragenter.stop.prevent
             @dragstart.stop="onDragNode(node, $event)"
             @drop.prevent.stop="onDropNode(node, $event)"
-            @click="toggleVisiblity"
+            @click.stop="toggleVisiblity"
         >
             <slot name="node" :node="node">
                 {{ node.name }}
@@ -42,6 +42,7 @@ export default class Tree extends Vue {
     @Prop({ default: () => [] }) value!: TreeItem[];
     @Prop({ default: 10 }) indentLevel!: number;
     @Prop({ default: () => (borderDefault)}) border!: BorderConfig;
+    @Prop({ default: null }) validatorFunc!: (dragged: TreeItem, dropped: TreeItem) => boolean;
     @Prop({ default: false }) allowDragNDrop!: boolean;
 
     get nodes(): TreeItem[] {
@@ -88,7 +89,7 @@ export default class Tree extends Vue {
                 return
             }
 
-            if (dropLocation.validator && !dropLocation.validator(droppedNode, dropLocation)) {
+            if (this.validatorFunc && !this.validatorFunc(droppedNode, dropLocation)) {
                 return
             }
 
@@ -105,7 +106,7 @@ export default class Tree extends Vue {
     }
 
     private toggleVisiblity(event: InputEvent): void {
-        const target = event.target as HTMLInputElement;
+        const target = event.currentTarget as HTMLInputElement;
         if (!target) return;
 
         const element = target.getElementsByClassName('node-child')[0]
@@ -121,7 +122,6 @@ ul {
     padding: 0;
     list-style: none;
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .hide {
