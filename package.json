@@ -1,6 +1,6 @@
 {
   "name": "vue-quick-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/vue-quick-tree.umd.js",
   "module": "./dist/vue-quick-tree.esm.js",
   "unpkg": "./dist/vue-quick-tree.min.js",
@@ -13,9 +13,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
-    "build:umd": "rollup --config rollup.config.js --format umd --file dist/vue-quick-tree.umd.js",
-    "build:es": "rollup --config rollup.config.js --format es --file dist/vue-quick-tree.esm.js",
-    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/vue-quick-tree.min.js",
+    "build:umd": "rollup --config ./rollup.config.js --format umd --file ./dist/vue-quick-tree.umd.js",
+    "build:es": "rollup --config ./rollup.config.js --format es --file ./dist/vue-quick-tree.esm.js",
+    "build:unpkg": "rollup --config ./rollup.config.js --format iife --file ./dist/vue-quick-tree.min.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
