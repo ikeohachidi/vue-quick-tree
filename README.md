@@ -48,6 +48,15 @@ export default {
 
 ```
 
+##Props
+
+| Name| Type  |Description
+|--|--|--|
+| indentLevel |number  | indent size of the node
+| border | BorderConfig (see below) | indent line style
+| allowDragNDrop| boolean | determines if drag n drop will enabled
+
+
 The expected structure is a recursive array. Feel free to add any thing property you want to add into the object.
 
 **Note: The children property is required to have the nested structure**
