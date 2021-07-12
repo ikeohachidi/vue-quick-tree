@@ -1,6 +1,6 @@
 {
   "name": "vue-quick-tree",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./dist/vue-quick-tree.umd.js",
   "module": "./dist/vue-quick-tree.esm.js",
   "unpkg": "./dist/vue-quick-tree.min.js",
