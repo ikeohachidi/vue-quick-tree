@@ -51,6 +51,7 @@ export default class Tree extends Vue {
 
     get nodeBorder(): {[cssProperties: string]: string} {
         const border = {
+            show: this.border.show || borderDefault.show,
             width: this.border.width || borderDefault.width,
             type: this.border.type || borderDefault.type,
             color: this.border.color || borderDefault.color,
