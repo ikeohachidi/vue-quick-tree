@@ -48,13 +48,23 @@ export default {
 
 ```
 
-##Props
+### Props
 
 | Name| Type  |Description
 |--|--|--|
 | indentLevel |number  | indent size of the node
 | border | BorderConfig (see below) | indent line style
 | allowDragNDrop| boolean | determines if drag n drop will enabled
+
+```typescript
+// BorderConfig
+{
+    show: boolean;
+    type: 'dashed' | 'solid';
+    color: string;
+    width: number;
+}
+```
 
 
 The expected structure is a recursive array. Feel free to add any thing property you want to add into the object.
