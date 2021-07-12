@@ -33,7 +33,7 @@
 import {Vue, Component, Prop} from 'vue-property-decorator';
 
 import { TreeItem, BorderConfig, borderDefault } from '@/types/Tree';
-import Inspector from './Inspector';
+import Inspector from './Inspect';
 
 @Component({
     name: 'Tree'
