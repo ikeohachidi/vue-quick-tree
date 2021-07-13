@@ -12,7 +12,7 @@
                 {{ node.name }}
             </slot>
 
-            <tree
+            <vue-quick-tree
                 class="node-child"
                 v-if="node.children"
                 v-model="node.children" 
@@ -24,7 +24,7 @@
                 <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="props">
                     <slot :name="slot" v-bind="props"/>
                 </template>
-            </tree>
+            </vue-quick-tree>
         </li>
     </ul>
 </template>
@@ -35,8 +35,10 @@ import {Vue, Component, Prop} from 'vue-property-decorator';
 import { TreeItem, BorderConfig, borderDefault } from '@/types/Tree';
 import Inspector from './Inspect';
 
-@Component
-export default class Tree extends Vue {
+@Component({
+    name: 'vue-quick-tree'
+})
+export default class VueQuickTree extends Vue {
     @Prop({ default: () => [] }) value!: TreeItem[];
     @Prop({ default: 10 }) indentLevel!: number;
     @Prop({ default: () => (borderDefault)}) border!: BorderConfig;
