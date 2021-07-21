@@ -13,7 +13,7 @@
             </slot>
 
             <vue-quick-tree
-                class="node-child"
+                class="node-child hide"
                 v-if="node.children"
                 v-model="node.children" 
                 :indent-level="indentLevel" 
